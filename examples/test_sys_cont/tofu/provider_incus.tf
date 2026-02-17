@@ -5,7 +5,7 @@ provider "incus" {
   default_remote = "tauro"
 
   remote {
-    name    = "xxxxx_hostname_xxxxx"
-    address = "https://xxxxx_hostname_xxxxx"
+    name    = "tauro"
+    address = "https://tauro.hc.deney.io:443"
   }
 }
