@@ -47,7 +47,7 @@ repo_root=$(git rev-parse --show-toplevel)
 # link_ansible_role "../${gitman_dependencies_path}/mttjohnson_infra/ansible/roles" "roles"
 
 # Linking Collections from gitman dependencies
-link_ansible_role "${gitman_dependencies_path}/mttjohnson_infra/ansible" "collections/ansible_collections/mttjohnson/infra"
+link_ansible_role "../../../${gitman_dependencies_path}/mttjohnson_infra/ansible" "collections/ansible_collections/mttjohnson/infra"
 
 # Linking Collections from local path
 # link_ansible_role "~/projects/infra-components/ansible" "collections/ansible_collections/mttjohnson/infra"

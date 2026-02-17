@@ -1,4 +1,4 @@
 ---
 hostsfile_hosts: []
 additional_hostsfile_hosts:
-  - { ip: "127.0.0.1", hostname: "{{ fq_hostname }} {{ inventory_hostname }}" }
+  - { ip: "127.0.0.1", hostname: "{{ inventory_hostname }}" }

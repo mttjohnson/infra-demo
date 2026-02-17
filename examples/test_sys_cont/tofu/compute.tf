@@ -66,7 +66,7 @@ resource "incus_instance" "system" {
                     - to: default
                       via: ${var.static_net_gateway}
                   nameservers:
-                    search: [ mash.lan, hc.deney.io, local ]
+                    search: [ local ]
                     addresses: [ ${var.static_net_dns} ]
     EOT
   }
@@ -110,7 +110,7 @@ resource "incus_instance" "system" {
     connection {
       type = "ssh"
       user = data.external.get_local_username.result["username"]
-      host = incus_instance.system.ipv4_address
+      host = var.static_ipv4_address
     }
   }
 
@@ -156,7 +156,11 @@ resource "local_file" "system_ansible_inventory" {
           "system" : {
             hosts : {
               "${incus_instance.system.name}" : {
-                ansible_host                = "${incus_instance.system.ipv4_address}"
+                fq_hostname                 = "${var.instance_name}.local"
+                ansible_host                = "${var.static_ipv4_address}"
+                static_ipv4_to_use          = "${var.static_ipv4_address}"
+                net_default_gateway         = "${var.static_net_gateway}"
+                net_dns                     = "${var.static_net_dns}"
                 additional_disk_device_path = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_incus_data"
               }
             }
