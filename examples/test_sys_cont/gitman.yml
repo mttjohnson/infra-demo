@@ -1,0 +1,16 @@
+location: dependencies
+sources:
+  - repo: git@github.com:mttjohnson/infra-components.git
+    name: mttjohnson_infra
+    rev: main
+    type: git
+    params:
+    sparse_paths:
+      - 
+    links:
+      -
+    scripts:
+      -
+default_group: ''
+groups:
+  -

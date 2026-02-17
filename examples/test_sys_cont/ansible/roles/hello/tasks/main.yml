@@ -1,0 +1,7 @@
+---
+
+- name: Write hello world file
+  ansible.builtin.copy:
+    content: "hello world"
+    dest: /root/hello
+    mode: "0644"
